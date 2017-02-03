@@ -1,0 +1,39 @@
+//SASS
+
+.btn-top {
+  position: fixed;
+  bottom: em(20px);
+  right: em(-120px);
+  width: em(50px);
+  height: em(50px);
+  padding: 0;
+  border-radius: em(100px);
+  border: none;
+  background-color: $peter-river;
+  color: $clouds;
+  transition: all .25s ease;
+  &:hover {
+    background-color: $alizarin;
+  }
+}
+
+button.active {
+  right: em(20px);
+}
+
+
+//JS
+//Btn-top
+    $('body').append('<button type="button" class="btn-top"><i class="fa fa-angle-double-up fa-2x"></i></button>');
+
+    $('body').on('click', '.btn-top', function () {
+        $('html,body').animate({scrollTop: 0}, 'slow');
+    });
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > $(this).height()) {
+            $('.btn-top').addClass('active');
+        } else {
+            $('.btn-top').removeClass('active');
+        }
+    });
